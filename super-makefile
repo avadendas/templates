@@ -1,0 +1,22 @@
+# FILE: makefile 
+# AUTHOR: mrbook, mods by avadendas
+# URL: mrbook.org/blog/tutorials/make/
+# EMAIL: alexia.lee@uqconnect.edu.au
+# DESCRIPTION: super vanilla makefile template
+# WARNING: remember to do :set noexpandtab
+
+# The compiler
+CC=g++
+CFLAGS=-c -Wall
+LDFLAGS=
+SOURCES=example.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECS=
+
+all: $(SOURCES) $(EXECUTABLE)
+
+$(EXECS): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@
